@@ -1,111 +1,111 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { useFormik } from "formik";
 import "./RentalForms.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import * as yup from "yup";
 
 const carTypes = ["Hatchback", "Sedan", "SUV"];
 
+const validationSchema = yup.object({
+  source: yup.string().required("Source Location is required"),
+  destination: yup.string().required("Destination is required"),
+  car_type: yup.string().required("Car Type is required"),
+});
+
 const RentalForm = () => {
+  const formik = useFormik({
+    initialValues: {
+      source: "",
+      destination: "",
+      car_type: "",
+      travellers: "",
+    },
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values));
+    },
+    validationSchema: validationSchema,
+  });
+
   return (
-    <Formik
-      initialValues={{
-        source: "",
-        destination: "",
-        car_type: "",
-        travellers: "",
-      }}
-    >
-      {(formik) => (
-        <div>
-          <Form>
-            {/* <div className="col-12">
-              <div className="mb-2 col-5">
-                <label htmlFor="source">
-                  Source Location <strong>*</strong>
-                </label>
-                <input className="form-control" autoComplete="off" />
-              </div>
-              <div className="col-4">
-                <label htmlFor="source">
-                  Source Location <strong>*</strong>
-                </label>
-                <input className="form-control" autoComplete="off" />
-              </div>
-            </div> */}
+    <div>
+      <form onSubmit={formik.handleSubmit}>
+        <div className="col-12 box">
+          <div>
+            <TextField
+              className="col-5"
+              name="source"
+              tpe="text"
+              id="source_location_field"
+              label="Source Location"
+              margin="normal"
+              onChange={formik.handleChange}
+              error={formik.touched.source && Boolean(formik.errors.source)}
+              helperText={formik.touched.source && formik.errors.source}
+              value={formik.values.source}
+              style={{ marginRight: 95 }}
+            />
+            <TextField
+              className="col-5"
+              name="destination"
+              type="text"
+              id="destination_location_field"
+              label="Destination"
+              value={formik.values.destination}
+              onChange={formik.handleChange}
+              error={
+                formik.touched.destination && Boolean(formik.errors.destination)
+              }
+              helperText={
+                formik.touched.destination && formik.errors.destination
+              }
+              margin="normal"
+            />
+          </div>
+          <div className="col-12">
+            <TextField
+              className="col-11"
+              id="car_type_field"
+              type="text"
+              name="car_type"
+              select
+              label="Enter Car Type"
+              value={formik.values.car_type}
+              style={{ marginTop: 50 }}
+              onChange={formik.handleChange}
+              error={formik.touched.car_type && Boolean(formik.errors.car_type)}
+              helperText={formik.touched.car_type && formik.errors.car_type}
+              margin="normal"
+            >
+              {carTypes.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
 
-            {/* 
-                  <div className="col-5 inputBox1">
-                    <input type="email" name="email" required></input>
-                    <label>Source Location <strong>*</strong></label>
-                  </div>
-            
-                  <div className="col-6 inputBox2">
-                        <input type="text" name="text" required></input>
-                        <label>Destination<strong>*</strong></label>
-                  </div>
-                  <input type="submit" name="sign-in" value="Sign In" />
-                
-              </div> */}
-            <div className="col-12 box">
-              <div>
-                <TextField
-                  className="col-5"
-                  required
-                  id="source_location_field"
-                  label="Source Location"
-                  style={{ marginRight: 55 }}
-                  // value={name}
-                  // onChange={handleChange}
-                />
-                <TextField
-                  className="col-5"
-                  required
-                  id="destination_location_field"
-                  label="Destination"
-                  // value={name}
-                  // onChange={handleChange}
-                />
-              </div>
-              <div className="col-12">
-                <TextField
-                  className="col-11"
-                  id="car_type_field"
-                  required
-                  select
-                  label="Enter Car Type"
-                  style={{ marginTop: 50 }}
-                  // value={currency}
-                  // onChange={handleChange}
-                >
-                  {carTypes.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </div>
-
-              <div className="col-12">
-                <TextField
-                  className="col-11"
-                  id="travellers_count"
-                  label="Number of Travellers"
-                  style={{ marginTop: 50, marginBottom: 50 }}
-                  // value={currency}
-                  // onChange={handleChange}
-                />
-              </div>
-              <div className="col-12">
-                <button className="btn btn-primary col-10 bid-button">
-                  Enter Bid Details
-                </button>
-              </div>
-            </div>
-          </Form>
+          <div className="col-12">
+            <TextField
+              className="col-11"
+              id="travellers_count"
+              label="Number of Travellers"
+              type="text"
+              name="travellers"
+              style={{ marginTop: 50, marginBottom: 50 }}
+              onChange={formik.handleChange}
+              value={formik.values.travellers}
+              margin="normal"
+            />
+          </div>
+          <div className="col-12">
+            <button className="btn btn-primary col-10 bid-button" type="submit">
+              Enter Bid Details
+            </button>
+          </div>
         </div>
-      )}
-    </Formik>
+      </form>
+    </div>
   );
 };
 
