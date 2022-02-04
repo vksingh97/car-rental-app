@@ -1,13 +1,14 @@
 import "./App.css";
 import Main from "./components/MainComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Main />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
