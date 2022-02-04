@@ -1,0 +1,31 @@
+.pricebox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  padding: 2.5rem;
+  border: 2px solid black;
+  margin-top: 10px;
+}
+
+#colorstrip {
+  width: 100%;
+  height: 200px;
+  margin-top: 60px;
+  background-color: rgb(8, 18, 59);
+  line-height: 2;
+}
+
+#colorstrip > h2 {
+  color: white;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  padding-top: 70px;
+  font-family: sans-serif;
+}
+
+.pricebox > h6 {
+  color: grey;
+}

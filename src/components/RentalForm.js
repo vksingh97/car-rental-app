@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import "./RentalForms.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import * as yup from "yup";
+import { Link } from "react-router-dom";
 
 const carTypes = ["Hatchback", "Sedan", "SUV"];
+
+let bid;
 
 const validationSchema = yup.object({
   source: yup.string().required("Source Location is required"),
@@ -22,10 +25,13 @@ const RentalForm = () => {
       travellers: "",
     },
     onSubmit: (values) => {
-      console.log(JSON.stringify(values));
+      setBidDetails(values);
+      bid = values;
+      console.log(bid);
     },
     validationSchema: validationSchema,
   });
+  const [bidDetails, setBidDetails] = useState(formik.initialValues);
 
   return (
     <div>
@@ -99,9 +105,14 @@ const RentalForm = () => {
             />
           </div>
           <div className="col-12">
-            <button className="btn btn-primary col-10 bid-button" type="submit">
-              Enter Bid Details
-            </button>
+            <Link to="/price">
+              <button
+                className="btn btn-primary col-10 bid-button"
+                type="submit"
+              >
+                Enter Bid Details
+              </button>
+            </Link>
           </div>
         </div>
       </form>
@@ -110,3 +121,4 @@ const RentalForm = () => {
 };
 
 export default RentalForm;
+export { bid };
