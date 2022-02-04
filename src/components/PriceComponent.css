@@ -5,8 +5,9 @@
   transform: translate(-50%, -50%);
   width: 60%;
   padding: 2.5rem;
-  border: 2px solid black;
-  margin-top: 10px;
+  /* border: 2px solid black; */
+  margin-top: 150px;
+  height: 500px;
 }
 
 #colorstrip {
@@ -26,6 +27,45 @@
   font-family: sans-serif;
 }
 
-.pricebox > h6 {
+.pricebox h6 {
   color: grey;
+}
+
+.edit-button {
+  right: 90px;
+  /* bottom: 50%; */
+  position: fixed;
+  display: inline;
+}
+.edit-text {
+  /* bottom: 68%; */
+  top: 8%;
+  right: 60px;
+  position: fixed;
+}
+.edit-icon {
+  position: fixed;
+  left: 86%;
+  top: 8%;
+}
+
+.input-amount-field,
+.input-amount-field:focus {
+  outline: none;
+  border: none;
+  position: fixed;
+  left: 49%;
+  bottom: 40.5%;
+  /* font-size: 40px; */
+  width: 30%;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(214, 213, 213);
+}
+
+.input-amount {
+  position: absolute;
+  left: 45%;
+  font-size: 50px;
 }

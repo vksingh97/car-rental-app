@@ -28,6 +28,17 @@ const RentalForm = () => {
       setBidDetails(values);
       bid = values;
       console.log(bid);
+      // if (bid.source === "" || bid.destination === "") console.log("empty");
+      // else navigate("/price");
+      const promise = new Promise((resolve, reject) => {
+        // console.log(resolve)
+      });
+      promise
+        .then((values) => {
+          console.log(values);
+        })
+        .then(() => {})
+        .catch(console.log(Error("rejected")));
     },
     validationSchema: validationSchema,
   });
