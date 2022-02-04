@@ -52,9 +52,9 @@ const RentalForm = () => {
             <TextField
               className="col-5"
               name="source"
-              tpe="text"
+              type="text"
               id="source_location_field"
-              label="Source Location"
+              label="Source Location *"
               margin="normal"
               onChange={formik.handleChange}
               error={formik.touched.source && Boolean(formik.errors.source)}
@@ -67,7 +67,7 @@ const RentalForm = () => {
               name="destination"
               type="text"
               id="destination_location_field"
-              label="Destination"
+              label="Destination *"
               value={formik.values.destination}
               onChange={formik.handleChange}
               error={
@@ -86,7 +86,7 @@ const RentalForm = () => {
               type="text"
               name="car_type"
               select
-              label="Enter Car Type"
+              label="Enter Car Type *"
               value={formik.values.car_type}
               style={{ marginTop: 50 }}
               onChange={formik.handleChange}
