@@ -57,6 +57,19 @@ const Price = () => {
             className="input-amount-field"
           ></input>
         </div>
+        <br />
+        <div className="form-check rate-negotiable-checkbox">
+          <input className="form-check-input" type="checkbox" value="" />
+          <label className="form-check-label">Rate Negotiable</label>
+        </div>
+        <div className="col-12">
+          <button
+            className="btn btn-primary price-page-button col-10"
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
