@@ -1,24 +1,23 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import "./PriceComponent.css";
 import Header from "./HeaderComponent";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Grid from "@mui/material/Grid";
-import { Link, resolvePath } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { bid } from "./RentalForm";
 import { price_entered } from "./PriceComponent";
+import InputAdornment from "@mui/material/InputAdornment";
 
+let user;
 const validationSchema = yup.object({
-  number: yup.string().required("Number is required"),
+  mobile: yup.string().required("Number is required"),
   name: yup.string().required("Name is required"),
 });
-
 const UserDetailComponent = () => {
-  const [bidAmount, setBidAmount] = useState(0);
-  console.log(price_entered);
   const formik = useFormik({
     initialValues: {
       mobile: "",
@@ -27,10 +26,14 @@ const UserDetailComponent = () => {
       remarks: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      setUserDetails(values);
+      console.log(userDetails);
+      user = userDetails;
+      console.log(user);
     },
     validationSchema: validationSchema,
   });
+  const [userDetails, setUserDetails] = useState(formik.initialValues);
   return (
     <div>
       <Header />
@@ -55,12 +58,15 @@ const UserDetailComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          <h3>{`${bid.source} - ${bid.destination}`}</h3>
+          {/* <h3>{`${bid.source} - ${bid.destination}`}</h3>
           {bid.travellers === "1" ? (
             <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )}
+          )} */}
+          <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
+
+          <h5>{`${"5"} Persons, ${"SUV"}`}</h5>
         </div>
         <hr />
         <br />
@@ -72,12 +78,7 @@ const UserDetailComponent = () => {
             placeholder="0"
             className="input-amount-field"
             value={price_entered}
-            onChange={(e) => {
-              if (parseInt(e.target.value) <= 0 || e.target.value === "") {
-              } else {
-                setBidAmount(e.target.value);
-              }
-            }}
+            disabled="disabled"
           ></input>
         </div>
         <div className="form-check rate-negotiable-checkbox">
@@ -100,14 +101,21 @@ const UserDetailComponent = () => {
                 label="Enter your 10 digit Mobile number"
                 margin="normal"
                 onChange={formik.handleChange}
+                error={formik.touched.mobile && Boolean(formik.errors.mobile)}
+                helperText={formik.touched.mobile && formik.errors.mobile}
                 value={formik.values.mobile}
                 style={{ marginRight: 400 }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">+91-</InputAdornment>
+                  ),
+                }}
               />
             </div>
             <div className="whatsapp-color-strip">
               <div className="col-12">
                 <div className="form-check updates-checkbox">
-                  <input type="checkbox" value="" />
+                  <input type="checkbox" value="false" />
                   <label
                     className="form-check-label"
                     style={{ paddingLeft: 20 }}
@@ -131,6 +139,8 @@ const UserDetailComponent = () => {
                 label="Enter your Name *"
                 margin="normal"
                 onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
                 value={formik.values.name}
               />
             </div>
@@ -148,6 +158,7 @@ const UserDetailComponent = () => {
             </div>
             <div className="col-12">
               <button
+                type="submit"
                 className="btn btn-primary col-12"
                 style={{ marginTop: 18, height: 50 }}
               >
