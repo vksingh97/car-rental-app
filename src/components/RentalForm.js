@@ -27,23 +27,27 @@ const RentalForm = () => {
     onSubmit: (values) => {
       setBidDetails(values);
       bid = values;
+      setTimeout(() => {}, 500);
       console.log(bid);
       // if (bid.source === "" || bid.destination === "") console.log("empty");
       // else navigate("/price");
-      const promise = new Promise((resolve, reject) => {
-        // console.log(resolve)
-      });
-      promise
-        .then((values) => {
-          console.log(values);
-        })
-        .then(() => {})
-        .catch(console.log(Error("rejected")));
+      // const promise = new Promise((resolve, reject) => {
+      //   // console.log(resolve)
+      // });
+      // promise
+      //   .then((values) => {
+      //     console.log(values);
+      //   })
+      //   .then(() => {})
+      //   .catch(console.log(Error("rejected")));
     },
+    // onChange: () => {
+    //   bid = document.getElementById("source_location_field").value;
+    // },
     validationSchema: validationSchema,
   });
   const [bidDetails, setBidDetails] = useState(formik.initialValues);
-
+  // console.log(bid);
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -116,10 +120,18 @@ const RentalForm = () => {
             />
           </div>
           <div className="col-12">
-            <Link to="/price">
+            <Link
+              onClick={(e) =>
+                !bid ? e.preventDefault() : formik.handleSubmit()
+              }
+              to="/price"
+            >
               <button
                 className="btn btn-primary col-10 bid-button"
                 type="submit"
+                onClick={() => {
+                  bid = bidDetails;
+                }}
               >
                 Enter Bid Details
               </button>
