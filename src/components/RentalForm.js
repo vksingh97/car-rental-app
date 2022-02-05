@@ -47,7 +47,7 @@ const RentalForm = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <div className="col-12 box">
+        <div className="col-12 box-main-page">
           <div>
             <TextField
               className="col-5"
