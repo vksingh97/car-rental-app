@@ -9,6 +9,17 @@
   margin-top: 150px;
   height: 500px;
 }
+.user-detail-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  padding: 2.5rem;
+  /* border: 2px solid black; */
+  margin-top: 350px;
+  height: 500px;
+}
 
 .contact-box {
   position: absolute;
@@ -40,6 +51,9 @@
 }
 
 .pricebox h6 {
+  color: grey;
+}
+.user-detail-box h6 {
   color: grey;
 }
 
@@ -126,4 +140,32 @@ form {
 .name-field {
   /* bottom: 200px; */
   padding-top: 12%;
+}
+
+.rupee-symbol {
+  position: absolute;
+  left: 75%;
+  top: 20%;
+}
+
+.verify-page-price {
+  position: absolute;
+  left: 78%;
+  top: 20%;
+}
+
+.fixed-price {
+  position: absolute;
+  left: 78%;
+  top: 30%;
+}
+.edit-number-icon {
+  position: absolute;
+  left: 48%;
+  top: 60%;
+}
+.edit-number-text {
+  position: absolute;
+  left: 51%;
+  top: 60%;
 }

@@ -173,3 +173,4 @@ const UserDetailComponent = () => {
 };
 
 export default UserDetailComponent;
+export { user };
