@@ -28,6 +28,10 @@ const RentalForm = () => {
       setBidDetails(values);
       bid = values;
       console.log(values);
+      if (!bid) {
+      } else {
+        nagivate("/price", { replace: true });
+      }
     },
     validationSchema: validationSchema,
   });
@@ -43,7 +47,7 @@ const RentalForm = () => {
               name="source"
               type="text"
               id="source_location_field"
-              required
+              // required
               label="Source Location"
               margin="normal"
               onChange={formik.handleChange}
@@ -57,7 +61,7 @@ const RentalForm = () => {
               name="destination"
               type="text"
               id="destination_location_field"
-              required
+              // required
               label="Destination"
               value={formik.values.destination}
               onChange={formik.handleChange}
@@ -73,7 +77,7 @@ const RentalForm = () => {
           <div className="col-12">
             <TextField
               className="col-11"
-              required
+              // required
               id="car_type_field"
               type="text"
               name="car_type"
@@ -108,28 +112,9 @@ const RentalForm = () => {
             />
           </div>
           <div className="col-12">
-            {/* <Link
-              onClick={(e) =>
-                !bid ? e.preventDefault() : formik.handleSubmit()
-              }
-              to="/price"
-            > */}
-            <button
-              className="btn btn-primary col-10 bid-button"
-              type="submit"
-              onClick={(e) => {
-                bid = bidDetails;
-                if (!bid) {
-                  e.preventDefault();
-                } else {
-                  formik.handleSubmit();
-                  nagivate("/price", { replace: true });
-                }
-              }}
-            >
+            <button className="btn btn-primary col-10 bid-button" type="submit">
               Enter Bid Details
             </button>
-            {/* </Link> */}
           </div>
         </div>
       </form>

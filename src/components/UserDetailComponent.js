@@ -14,7 +14,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 let user;
 const validationSchema = yup.object({
-  mobile: yup.string().required("Number is required"),
+  mobile: yup.string().required("Number is required").min(10).max(10),
   name: yup.string().required("Name is required"),
 });
 const UserDetailComponent = () => {
@@ -28,9 +28,12 @@ const UserDetailComponent = () => {
     },
     onSubmit: (values) => {
       setUserDetails(values);
-      console.log(userDetails);
       user = values;
       console.log(user);
+      if (!user) {
+      } else {
+        navigate("/verifyOtp", { replace: true });
+      }
     },
     validationSchema: validationSchema,
   });
@@ -159,15 +162,6 @@ const UserDetailComponent = () => {
                 type="submit"
                 className="btn btn-primary col-12"
                 style={{ marginTop: 18, height: 50 }}
-                onClick={(e) => {
-                  user = userDetails;
-                  if (!user) {
-                    e.preventDefault();
-                  } else {
-                    formik.handleSubmit();
-                    navigate("/verifyOtp", { replace: true });
-                  }
-                }}
               >
                 Verify via OTP
               </button>
