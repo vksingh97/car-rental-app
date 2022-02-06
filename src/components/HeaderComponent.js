@@ -4,7 +4,11 @@ const Header = () => {
   return (
     <div>
       <div className="header">
-        <h1>LOGO</h1>
+        <img
+          src="./assets/images/logo.png"
+          alt="vahak"
+          style={{ height: 50, position: "relative", left: 60, top: 30 }}
+        ></img>
       </div>
     </div>
   );

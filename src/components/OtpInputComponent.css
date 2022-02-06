@@ -8,14 +8,6 @@
   outline: none;
 }
 
-/* input[type="text"] {
-  color: black;
-  font-size: 60px;
-  text-align: center;
-  font-weight: bold;
-  font-family: sans-serif;
-} */
-
 #verify-otp-button {
   position: fixed;
   left: 4%;

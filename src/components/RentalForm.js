@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { replace, useFormik } from "formik";
+import { useFormik } from "formik";
 import "./RentalForms.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -43,7 +43,8 @@ const RentalForm = () => {
               name="source"
               type="text"
               id="source_location_field"
-              label="Source Location *"
+              required
+              label="Source Location"
               margin="normal"
               onChange={formik.handleChange}
               error={formik.touched.source && Boolean(formik.errors.source)}
@@ -56,7 +57,8 @@ const RentalForm = () => {
               name="destination"
               type="text"
               id="destination_location_field"
-              label="Destination *"
+              required
+              label="Destination"
               value={formik.values.destination}
               onChange={formik.handleChange}
               error={
@@ -71,11 +73,12 @@ const RentalForm = () => {
           <div className="col-12">
             <TextField
               className="col-11"
+              required
               id="car_type_field"
               type="text"
               name="car_type"
               select
-              label="Enter Car Type *"
+              label="Enter Car Type"
               value={formik.values.car_type}
               style={{ marginTop: 50 }}
               onChange={formik.handleChange}
