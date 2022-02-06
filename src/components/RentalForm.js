@@ -4,7 +4,7 @@ import "./RentalForms.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import * as yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const carTypes = ["Hatchback", "Sedan", "SUV"];
 

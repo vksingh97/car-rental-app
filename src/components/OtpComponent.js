@@ -82,7 +82,7 @@ const OtpComponent = () => {
               marginTop: -45,
             }}
           >
-            <strong>{`8826035393`}</strong>
+            <strong>{user.mobile}</strong>
           </p>
           <div>
             <Link to="/userDetail">

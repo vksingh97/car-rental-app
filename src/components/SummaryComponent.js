@@ -6,7 +6,6 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import { bid } from "./RentalForm";
 import { user } from "./UserDetailComponent";
-import OtpInputComponent from "./OtpInputComponent";
 
 const SummaryComponent = () => {
   return (
@@ -33,15 +32,12 @@ const SummaryComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          {/* <h3>{`${bid.source} - ${bid.destination}`}</h3>
+          <h3>{`${bid.source} - ${bid.destination}`}</h3>
           {bid.travellers === "1" ? (
             <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )} */}
-          <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
-
-          <h5>{`${"5"} Persons, ${"SUV"}`}</h5>
+          )}
         </div>
         <hr />
         <br />
@@ -54,12 +50,12 @@ const SummaryComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          {/* <h5>{`+91-${user.mobile}`}</h5>
+          <h5>{`+91-${user.mobile}`}</h5>
           <h5>{user.name}</h5>
-          <h5>{user.remarks}</h5> */}
-          <h5>{`+91-8826035393`}</h5>
+          <h5>{user.remarks}</h5>
+          {/* <h5>{`+91-8826035393`}</h5>
           <h5>{`Vivek Singh`}</h5>
-          <h5>{`Remarks`}</h5>
+          <h5>{`Remarks`}</h5> */}
         </div>
         <div>
           <h1 className="rupee-symbol">&#x20b9;</h1>
