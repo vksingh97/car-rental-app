@@ -29,7 +29,7 @@ const UserDetailComponent = () => {
     onSubmit: (values) => {
       setUserDetails(values);
       console.log(userDetails);
-      user = userDetails;
+      user = values;
       console.log(user);
       //   navigate("/verifyOtp", { replace: true });
     },
@@ -164,6 +164,7 @@ const UserDetailComponent = () => {
                 className="btn btn-primary col-12"
                 style={{ marginTop: 18, height: 50 }}
                 onClick={(e) => {
+                  user = userDetails;
                   if (!user) {
                     e.preventDefault();
                   } else {

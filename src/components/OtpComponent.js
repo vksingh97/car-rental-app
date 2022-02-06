@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./PriceComponent.css";
 import Header from "./HeaderComponent";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import * as yup from "yup";
-import { useFormik } from "formik";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { bid } from "./RentalForm";
-import { price_entered } from "./PriceComponent";
-import InputAdornment from "@mui/material/InputAdornment";
 import { user } from "./UserDetailComponent";
 import OtpInputComponent from "./OtpInputComponent";
 
@@ -40,15 +34,15 @@ const OtpComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          {/* <h3>{`${bid.source} - ${bid.destination}`}</h3>
+          <h3>{`${bid.source} - ${bid.destination}`}</h3>
           {bid.travellers === "1" ? (
             <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )} */}
-          <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
+          )}
+          {/* <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
 
-          <h5>{`${"5"} Persons, ${"SUV"}`}</h5>
+          <h5>{`${"5"} Persons, ${"SUV"}`}</h5> */}
         </div>
         <hr />
         <br />
@@ -61,16 +55,9 @@ const OtpComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          <h3>{`${bid.source} - ${bid.destination}`}</h3>
-          {bid.travellers === "1" ? (
-            <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
-          ) : (
-            <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )}
-          <h5>{`${"+91-8826035393"}`}</h5>
-          <h5>{`m number is ${user.mobile}`}</h5>
-          <h5>{`${"Vivek Singh"}`}</h5>
-          <h5>{`${"remarks"}`}</h5>
+          <h5>{`+91-${user.mobile}`}</h5>
+          <h5>{user.name}</h5>
+          <h5>{user.remarks}</h5>
         </div>
         <div>
           <h1 className="rupee-symbol">&#x20b9;</h1>
