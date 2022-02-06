@@ -31,7 +31,6 @@ const UserDetailComponent = () => {
       console.log(userDetails);
       user = values;
       console.log(user);
-      //   navigate("/verifyOtp", { replace: true });
     },
     validationSchema: validationSchema,
   });
@@ -66,9 +65,6 @@ const UserDetailComponent = () => {
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
           )}
-          {/* <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
-
-          <h5>{`${"5"} Persons, ${"SUV"}`}</h5> */}
         </div>
         <hr />
         <br />

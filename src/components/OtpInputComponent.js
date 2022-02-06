@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./OtpInputComponent.css";
-import SummaryComponent from "./SummaryComponent";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-let my_otp;
 const OtpInputComponent = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(new Array(4).fill(""));
@@ -14,7 +12,6 @@ const OtpInputComponent = () => {
     if (index === 3) {
       console.log(otp);
     }
-    my_otp = otp.join("");
 
     //Focus next input
     if (element.nextSibling) {
@@ -50,20 +47,20 @@ const OtpInputComponent = () => {
             );
           })}
         </div>
-        {/* <p>OTP Entered - {otp.join("")}</p> */}
         <div>
           <span className="resend-otp">Resend OTP Again</span>
         </div>
         <div className="col-12">
-          {/* <Link to="/summary"> */}
           <button
             className="btn btn-primary"
             id="verify-otp-button"
             onClick={(e) => {
               if (otp.join("") === "1234") {
                 console.log("match");
+                navigate("/summary", { replace: true });
+              } else {
+                console.log("wrong otp");
               }
-              navigate("/summary", { replace: true });
             }}
           >
             Verify via OTP

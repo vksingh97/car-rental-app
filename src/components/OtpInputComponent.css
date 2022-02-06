@@ -32,3 +32,9 @@
   left: 23%;
   top: 100%;
 }
+
+.submit-bid-button {
+  position: absolute;
+  width: 80%;
+  height: 12%;
+}
