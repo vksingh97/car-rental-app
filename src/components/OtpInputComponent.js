@@ -9,11 +9,7 @@ const OtpInputComponent = () => {
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
     setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
-    if (index === 3) {
-      console.log(otp);
-    }
 
-    //Focus next input
     if (element.nextSibling) {
       element.nextSibling.focus();
     }
@@ -54,12 +50,9 @@ const OtpInputComponent = () => {
           <button
             className="btn btn-primary"
             id="verify-otp-button"
-            onClick={(e) => {
+            onClick={() => {
               if (otp.join("") === "1234") {
-                console.log("match");
                 navigate("/summary", { replace: true });
-              } else {
-                console.log("wrong otp");
               }
             }}
           >

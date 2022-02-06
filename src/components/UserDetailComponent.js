@@ -29,7 +29,6 @@ const UserDetailComponent = () => {
     onSubmit: (values) => {
       setUserDetails(values);
       user = values;
-      console.log(user);
       if (!user) {
       } else {
         navigate("/verifyOtp", { replace: true });

@@ -27,7 +27,6 @@ const RentalForm = () => {
     onSubmit: (values) => {
       setBidDetails(values);
       bid = values;
-      console.log(values);
       if (!bid) {
       } else {
         nagivate("/price", { replace: true });
