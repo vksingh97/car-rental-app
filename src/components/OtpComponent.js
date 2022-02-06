@@ -9,7 +9,6 @@ import { user } from "./UserDetailComponent";
 import OtpInputComponent from "./OtpInputComponent";
 
 const OtpComponent = () => {
-  console.log(user);
   return (
     <div>
       <Header />
