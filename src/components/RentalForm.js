@@ -27,9 +27,34 @@ const RentalForm = () => {
     onSubmit: (values) => {
       setBidDetails(values);
       bid = values;
+
       if (!bid) {
       } else {
-        nagivate("/price", { replace: true });
+        if (bid.car_type === "Hatchback") {
+          if (parseInt(bid.travellers) > 4) {
+            alert(
+              `Number of Travellers cannot be greater than 4 for ${bid.car_type}`
+            );
+          } else {
+            nagivate("/price", { replace: true });
+          }
+        } else if (bid.car_type === "SUV") {
+          if (parseInt(bid.travellers) > 6) {
+            alert(
+              `Number of Travellers cannot be greater than 6 for ${bid.car_type}`
+            );
+          } else {
+            nagivate("/price", { replace: true });
+          }
+        } else if (bid.car_type === "Sedane") {
+          if (parseInt(bid.travellers) > 4) {
+            alert(
+              `Number of Travellers cannot be greater than 4 for ${bid.car_type}`
+            );
+          } else {
+            nagivate("/price", { replace: true });
+          }
+        }
       }
     },
     validationSchema: validationSchema,
