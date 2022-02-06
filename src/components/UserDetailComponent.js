@@ -3,7 +3,7 @@ import "./PriceComponent.css";
 import Header from "./HeaderComponent";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -18,6 +18,7 @@ const validationSchema = yup.object({
   name: yup.string().required("Name is required"),
 });
 const UserDetailComponent = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       mobile: "",
@@ -30,6 +31,7 @@ const UserDetailComponent = () => {
       console.log(userDetails);
       user = userDetails;
       console.log(user);
+      //   navigate("/verifyOtp", { replace: true });
     },
     validationSchema: validationSchema,
   });
@@ -58,15 +60,15 @@ const UserDetailComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          {/* <h3>{`${bid.source} - ${bid.destination}`}</h3>
+          <h3>{`${bid.source} - ${bid.destination}`}</h3>
           {bid.travellers === "1" ? (
             <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )} */}
-          <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
+          )}
+          {/* <h3>{`${"delhi"} - ${"mumbai"}`}</h3>
 
-          <h5>{`${"5"} Persons, ${"SUV"}`}</h5>
+          <h5>{`${"5"} Persons, ${"SUV"}`}</h5> */}
         </div>
         <hr />
         <br />
@@ -161,6 +163,14 @@ const UserDetailComponent = () => {
                 type="submit"
                 className="btn btn-primary col-12"
                 style={{ marginTop: 18, height: 50 }}
+                onClick={(e) => {
+                  if (!user) {
+                    e.preventDefault();
+                  } else {
+                    formik.handleSubmit();
+                    navigate("/verifyOtp", { replace: true });
+                  }
+                }}
               >
                 Verify via OTP
               </button>

@@ -1,0 +1,34 @@
+.otp-field {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.otp-field:focus {
+  outline: none;
+}
+
+/* input[type="text"] {
+  color: black;
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-family: sans-serif;
+} */
+
+#verify-otp-button {
+  position: fixed;
+  left: 4%;
+  width: 50%;
+  height: 10%;
+  top: 110%;
+}
+
+.resend-otp {
+  position: absolute;
+  color: rgb(13, 110, 253);
+  font-weight: bold;
+  text-decoration: underline;
+  left: 23%;
+  top: 100%;
+}

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useFormik } from "formik";
+import { replace, useFormik } from "formik";
 import "./RentalForms.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const carTypes = ["Hatchback", "Sedan", "SUV"];
 
@@ -32,6 +32,7 @@ const RentalForm = () => {
     validationSchema: validationSchema,
   });
   const [bidDetails, setBidDetails] = useState(formik.initialValues);
+  const nagivate = useNavigate();
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -104,22 +105,28 @@ const RentalForm = () => {
             />
           </div>
           <div className="col-12">
-            <Link
+            {/* <Link
               onClick={(e) =>
                 !bid ? e.preventDefault() : formik.handleSubmit()
               }
               to="/price"
+            > */}
+            <button
+              className="btn btn-primary col-10 bid-button"
+              type="submit"
+              onClick={(e) => {
+                bid = bidDetails;
+                if (!bid) {
+                  e.preventDefault();
+                } else {
+                  formik.handleSubmit();
+                  nagivate("/price", { replace: true });
+                }
+              }}
             >
-              <button
-                className="btn btn-primary col-10 bid-button"
-                type="submit"
-                onClick={() => {
-                  bid = bidDetails;
-                }}
-              >
-                Enter Bid Details
-              </button>
-            </Link>
+              Enter Bid Details
+            </button>
+            {/* </Link> */}
           </div>
         </div>
       </form>

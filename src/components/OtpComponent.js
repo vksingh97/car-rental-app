@@ -12,8 +12,10 @@ import { bid } from "./RentalForm";
 import { price_entered } from "./PriceComponent";
 import InputAdornment from "@mui/material/InputAdornment";
 import { user } from "./UserDetailComponent";
+import OtpInputComponent from "./OtpInputComponent";
 
 const OtpComponent = () => {
+  console.log(user);
   return (
     <div>
       <Header />
@@ -59,14 +61,14 @@ const OtpComponent = () => {
         </Grid>
         <br />
         <div className="row">
-          {/* <h3>{`${bid.source} - ${bid.destination}`}</h3>
+          <h3>{`${bid.source} - ${bid.destination}`}</h3>
           {bid.travellers === "1" ? (
             <h5>{`${bid.travellers} Person, ${bid.car_type}`}</h5>
           ) : (
             <h5>{`${bid.travellers} Persons, ${bid.car_type}`}</h5>
-          )} */}
+          )}
           <h5>{`${"+91-8826035393"}`}</h5>
-
+          <h5>{`m number is ${user.mobile}`}</h5>
           <h5>{`${"Vivek Singh"}`}</h5>
           <h5>{`${"remarks"}`}</h5>
         </div>
@@ -107,6 +109,9 @@ const OtpComponent = () => {
                 </span>
               </Grid>
             </Link>
+          </div>
+          <div>
+            <OtpInputComponent />
           </div>
         </div>
       </div>
