@@ -58,7 +58,6 @@ const OtpInputComponent = () => {
           >
             Verify via OTP
           </button>
-          {/* </Link> */}
         </div>
       </div>
     </>
